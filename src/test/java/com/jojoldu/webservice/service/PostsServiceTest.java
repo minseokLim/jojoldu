@@ -4,6 +4,7 @@ package com.jojoldu.webservice.service;
 import com.jojoldu.webservice.domain.posts.Posts;
 import com.jojoldu.webservice.domain.posts.PostsRepository;
 import com.jojoldu.webservice.dto.posts.PostsSaveRequestDto;
+import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,11 +34,8 @@ public class PostsServiceTest {
 
         Posts posts = postsRepository.findAll().get(0);
 
-        System.out.println("expected : " + dto.getAuthor());
-        System.out.println("actual : " + posts.getAuthor());
-
-        Assert.assertEquals(dto.getAuthor(), posts.getAuthor());
-        Assert.assertEquals(dto.getContent(), posts.getContent());
-        Assert.assertEquals(dto.getTitle(), posts.getTitle());
+        Assert.assertThat(dto.getAuthor(), Is.is(posts.getAuthor()));
+        Assert.assertThat(dto.getContent(), Is.is(posts.getContent()));
+        Assert.assertThat(dto.getTitle(), Is.is(posts.getTitle()));
     }
 }
