@@ -32,6 +32,10 @@ public class PostsServiceTest {
         postsService.save(dto);
 
         Posts posts = postsRepository.findAll().get(0);
+
+        System.out.println("expected : " + dto.getAuthor());
+        System.out.println("actual : " + posts.getAuthor());
+
         Assert.assertEquals(dto.getAuthor(), posts.getAuthor());
         Assert.assertEquals(dto.getContent(), posts.getContent());
         Assert.assertEquals(dto.getTitle(), posts.getTitle());
