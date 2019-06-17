@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class WebRestController {
 
     private PostsService postsService;
-    
+
     private Environment env;
 
     @GetMapping("/hello")
